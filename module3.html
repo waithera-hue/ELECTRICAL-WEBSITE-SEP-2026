@@ -1,0 +1,2047 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Module 3 - Electrical Department</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            background: #800000;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        header h1 {
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 16px;
+        }
+
+        /* ================= NAVIGATION ================= */
+
+        .navbar {
+            background: #5a0000;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .menu-icon {
+            display: none;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-links li {
+            margin: 3px;
+        }
+
+        .nav-links a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px 13px;
+            border-radius: 5px;
+            font-weight: 600;
+            text-transform: capitalize;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            background: #a52a2a;
+        }
+
+        /* ================= CONTAINER ================= */
+
+        .container {
+            width: 96%;
+            max-width: 1500px;
+            margin: auto;
+            padding: 25px 10px;
+        }
+
+        /* ================= UNIT INFORMATION ================= */
+
+        .unit-box {
+            background: white;
+            border-left: 6px solid #800000;
+            padding: 18px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .unit-box h3 {
+            color: #800000;
+            margin-bottom: 5px;
+        }
+
+        /* ================= HEADINGS ================= */
+
+        h2 {
+            background: #800000;
+            color: white;
+            padding: 12px 18px;
+            margin: 35px 0 15px;
+            border-radius: 5px;
+        }
+
+        h3 {
+            color: #800000;
+        }
+
+        /* ================= TABLE ================= */
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            background: white;
+            box-shadow: 0 2px 7px rgba(0,0,0,0.1);
+            border-radius: 6px;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            min-width: 1050px;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background: #800000;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) td {
+            background: #fafafa;
+        }
+
+        tr:hover td {
+            background: #fff1f1;
+        }
+
+        /* ================= BUTTONS ================= */
+
+        .btn {
+            display: inline-block;
+            background: #8b0000;
+            color: white;
+            text-decoration: none;
+            padding: 8px 13px;
+            margin: 3px;
+            border-radius: 5px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #b22222;
+            transform: translateY(-1px);
+        }
+
+        .btn-green {
+            background: #2e7d32;
+        }
+
+        .btn-green:hover {
+            background: #1b5e20;
+        }
+
+        .btn-blue {
+            background: #1565c0;
+        }
+
+        .btn-blue:hover {
+            background: #0d47a1;
+        }
+
+        .btn-orange {
+            background: #ef6c00;
+        }
+
+        .btn-orange:hover {
+            background: #e65100;
+        }
+
+        /* ================= QUICK LINKS ================= */
+
+        .quick-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 20px 0;
+        }
+
+        /* ================= PORTFOLIO ================= */
+
+        .portfolio-card {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            border-top: 5px solid #800000;
+        }
+
+        .portfolio-card h3 {
+            color: #800000;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 8px;
+        }
+
+        .unit-portfolio {
+            background: #f9f9f9;
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #800000;
+        }
+
+        .unit-portfolio h4 {
+            color: #5a0000;
+            margin-bottom: 10px;
+            font-size: 17px;
+        }
+
+        .portfolio-section {
+            margin: 12px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+        }
+
+        .portfolio-section strong {
+            display: block;
+            margin-bottom: 6px;
+            color: #444;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #5a0000;
+            color: white;
+            text-align: center;
+            padding: 35px 15px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 900px) {
+
+            .menu-icon {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links a {
+                text-align: center;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .nav-container {
+                flex-wrap: wrap;
+            }
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            .container {
+                width: 98%;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header>
+
+    <h1>ABERDARE TECHNICAL COLLEGE</h1>
+
+    <p>Electrical Department</p>
+
+    <p>
+        <strong>Module 3 - Competency Assessment Tracker</strong>
+    </p>
+
+</header>
+
+
+<!-- =========================================================
+     HAMBURGER NAVIGATION
+========================================================= -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <div class="logo">
+            ELECTRICAL DEPARTMENT
+        </div>
+
+        <div class="menu-icon" onclick="toggleMenu()">
+            ☰
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="module1.html">Module 1</a>
+            </li>
+
+            <li>
+                <a href="module2.html">Module 2</a>
+            </li>
+
+            <li>
+                <a href="module3.html">Module 3</a>
+            </li>
+
+            <li>
+                <a href="module4.html">Module 4</a>
+            </li>
+
+            <li>
+                <a href="contact.html">Contact Us</a>
+            </li>
+
+            <li>
+                <a href="about.html">About Us</a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+
+<!-- =========================================================
+     MODULE 3 UNITS
+========================================================= -->
+
+<h2>Module 3 Electrical Units</h2>
+
+
+<div class="unit-box">
+
+    <h3>Unit 1: Digital Literacy</h3>
+
+    <p>
+        Application of digital technologies, computer applications,
+        online resources and digital tools in learning and electrical
+        engineering workplace activities.
+    </p>
+
+</div>
+
+
+<div class="unit-box">
+
+    <h3>Unit 2: Communication Skills</h3>
+
+    <p>
+        Development and application of effective communication skills
+        in the electrical engineering workplace, including written,
+        oral and workplace communication.
+    </p>
+
+</div>
+
+
+<div class="unit-box">
+
+    <h3>Unit 3: Technical Drawing</h3>
+
+    <p>
+        Preparation, interpretation and application of technical
+        drawings, electrical symbols, diagrams and layouts used in
+        electrical installation work.
+    </p>
+
+</div>
+
+
+<div class="unit-box">
+
+    <h3>Unit 4: Basic Electrical Principles</h3>
+
+    <p>
+        Application of fundamental electrical concepts including
+        voltage, current, resistance, power, electrical circuits,
+        measurements and electrical safety.
+    </p>
+
+</div>
+
+
+<div class="unit-box">
+
+    <h3>Unit 5: Electrical Installation</h3>
+
+    <p>
+        Performance of electrical installation activities including
+        wiring, installation of accessories, testing, inspection,
+        fault identification and safe working procedures.
+    </p>
+
+</div>
+
+
+<!-- =========================================================
+     QUICK ACCESS BUTTONS
+========================================================= -->
+
+<h2>Quick Access</h2>
+
+<div class="quick-links">
+
+    <a href="recordofwork.html" class="btn">
+        Record of Work
+    </a>
+
+    <a href="attendance.html" class="btn btn-green">
+        Attendance
+    </a>
+
+    <a href="scoresheet.html" class="btn btn-blue">
+        Scoresheet
+    </a>
+
+    <a href="digital-literacy-learning-plan.pdf" class="btn btn-orange">
+        Digital Literacy Learning Plan
+    </a>
+
+    <a href="communication-skills-learning-plan.pdf" class="btn btn-orange">
+        Communication Skills Learning Plan
+    </a>
+
+    <a href="technical-drawing-learning-plan.pdf" class="btn btn-orange">
+        Technical Drawing Learning Plan
+    </a>
+
+    <a href="basic-electrical-principles-learning-plan.pdf" class="btn btn-orange">
+        Basic Electrical Principles Learning Plan
+    </a>
+
+    <a href="electrical-installation-learning-plan.pdf" class="btn btn-orange">
+        Electrical Installation Learning Plan
+    </a>
+
+</div>
+
+
+<!-- =========================================================
+     PRACTICAL ASSESSMENT
+========================================================= -->
+
+<h2>Practical Assessment Scores</h2>
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+    <th>Student</th>
+
+    <th>Unit</th>
+
+    <th>Practical 1</th>
+
+    <th>View Exam</th>
+
+    <th>Practical 2</th>
+
+    <th>View Exam</th>
+
+    <th>Practical 3</th>
+
+    <th>View Exam</th>
+
+    <th>Average</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+
+<!-- ================= STUDENT 1 ================= -->
+
+<tr>
+<td rowspan="5"><strong>Student 1</strong></td>
+<td>Digital Literacy</td>
+<td>—</td>
+<td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+<td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+<td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Communication Skills</td>
+<td>—</td>
+<td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+<td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+<td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Technical Drawing</td>
+<td>—</td>
+<td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+<td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+<td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Basic Electrical Principles</td>
+<td>—</td>
+<td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+<td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+<td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Electrical Installation</td>
+<td>—</td>
+<td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+<td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+<td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+
+<!-- ================= STUDENT 2 ================= -->
+
+<tr>
+<td rowspan="5"><strong>Student 2</strong></td>
+<td>Digital Literacy</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Communication Skills</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Technical Drawing</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Basic Electrical Principles</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Electrical Installation</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+
+<!-- ================= STUDENT 3 ================= -->
+
+<tr>
+<td rowspan="5"><strong>Student 3</strong></td>
+<td>Digital Literacy</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Communication Skills</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Technical Drawing</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Basic Electrical Principles</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Electrical Installation</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+
+<!-- ================= STUDENT 4 ================= -->
+
+<tr>
+<td rowspan="5"><strong>Student 4</strong></td>
+<td>Digital Literacy</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Communication Skills</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Technical Drawing</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Basic Electrical Principles</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Electrical Installation</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+
+<!-- ================= STUDENT 5 ================= -->
+
+<tr>
+<td rowspan="5"><strong>Student 5</strong></td>
+<td>Digital Literacy</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Communication Skills</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Technical Drawing</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Basic Electrical Principles</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Electrical Installation</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+
+<!-- ================= STUDENT 6 ================= -->
+
+<tr>
+<td rowspan="5"><strong>Student 6</strong></td>
+<td>Digital Literacy</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Communication Skills</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Technical Drawing</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Basic Electrical Principles</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Electrical Installation</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+
+<!-- ================= STUDENT 7 ================= -->
+
+<tr>
+<td rowspan="5"><strong>Student 7</strong></td>
+<td>Digital Literacy</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Communication Skills</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Technical Drawing</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Basic Electrical Principles</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Electrical Installation</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+
+<!-- ================= STUDENT 8 ================= -->
+
+<tr>
+<td rowspan="5"><strong>Student 8</strong></td>
+<td>Digital Literacy</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Communication Skills</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Technical Drawing</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Basic Electrical Principles</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Electrical Installation</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+
+<!-- ================= STUDENT 9 ================= -->
+
+<tr>
+<td rowspan="5"><strong>Student 9</strong></td>
+<td>Digital Literacy</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Communication Skills</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Technical Drawing</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Basic Electrical Principles</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Electrical Installation</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+
+<!-- ================= STUDENT 10 ================= -->
+
+<tr>
+<td rowspan="5"><strong>Student 10</strong></td>
+<td>Digital Literacy</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Communication Skills</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Technical Drawing</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Basic Electrical Principles</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Electrical Installation</td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td><td><a href="#" class="btn">View Exam</a></td>
+<td>—</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+
+<!-- =========================================================
+     CAT ASSESSMENT
+========================================================= -->
+
+<h2>CAT Assessment Scores</h2>
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+    <th>Student</th>
+
+    <th>Unit</th>
+
+    <th>CAT 1</th>
+
+    <th>View CAT</th>
+
+    <th>CAT 2</th>
+
+    <th>View CAT</th>
+
+    <th>CAT 3</th>
+
+    <th>View CAT</th>
+
+    <th>Average</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+
+<!-- STUDENT 1 -->
+
+<tr>
+<td rowspan="5"><strong>Student 1</strong></td>
+<td>Digital Literacy</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Communication Skills</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Technical Drawing</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Basic Electrical Principles</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Electrical Installation</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+
+<!-- STUDENT 2 -->
+
+<tr>
+<td rowspan="5"><strong>Student 2</strong></td>
+<td>Digital Literacy</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Communication Skills</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Technical Drawing</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Basic Electrical Principles</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Electrical Installation</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+
+<!-- STUDENT 3 -->
+
+<tr>
+<td rowspan="5"><strong>Student 3</strong></td>
+<td>Digital Literacy</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Communication Skills</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Technical Drawing</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Basic Electrical Principles</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Electrical Installation</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+
+<!-- STUDENT 4 -->
+
+<tr>
+<td rowspan="5"><strong>Student 4</strong></td>
+<td>Digital Literacy</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Communication Skills</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Technical Drawing</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Basic Electrical Principles</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Electrical Installation</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+
+<!-- STUDENT 5 -->
+
+<tr>
+<td rowspan="5"><strong>Student 5</strong></td>
+<td>Digital Literacy</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Communication Skills</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Technical Drawing</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Basic Electrical Principles</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Electrical Installation</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+
+<!-- STUDENT 6 -->
+
+<tr>
+<td rowspan="5"><strong>Student 6</strong></td>
+<td>Digital Literacy</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Communication Skills</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Technical Drawing</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Basic Electrical Principles</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Electrical Installation</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+
+<!-- STUDENT 7 -->
+
+<tr>
+<td rowspan="5"><strong>Student 7</strong></td>
+<td>Digital Literacy</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Communication Skills</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Technical Drawing</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Basic Electrical Principles</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Electrical Installation</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+
+<!-- STUDENT 8 -->
+
+<tr>
+<td rowspan="5"><strong>Student 8</strong></td>
+<td>Digital Literacy</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Communication Skills</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Technical Drawing</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Basic Electrical Principles</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Electrical Installation</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+
+<!-- STUDENT 9 -->
+
+<tr>
+<td rowspan="5"><strong>Student 9</strong></td>
+<td>Digital Literacy</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Communication Skills</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Technical Drawing</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Basic Electrical Principles</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Electrical Installation</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+
+<!-- STUDENT 10 -->
+
+<tr>
+<td rowspan="5"><strong>Student 10</strong></td>
+<td>Digital Literacy</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Communication Skills</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Technical Drawing</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Basic Electrical Principles</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>Electrical Installation</td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td><td><a href="#" class="btn btn-blue">View CAT</a></td>
+<td>—</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+
+<!-- =========================================================
+     TRAINER'S PORTFOLIO
+========================================================= -->
+
+<h2>Trainer's Portfolio</h2>
+
+<div class="portfolio-card">
+
+    <h3>
+        Electrical Department - Module 3 Trainer's Portfolio
+    </h3>
+
+    <p>
+        This section contains practical assessments, observation
+        checklists, continuous assessment tests and marking schemes
+        for all Module 3 Electrical units.
+    </p>
+
+
+    <!-- UNIT 1 -->
+
+    <div class="unit-portfolio">
+
+        <h4>1. Digital Literacy</h4>
+
+        <div class="portfolio-section">
+
+            <strong>Practical Assessments</strong>
+
+            <a href="digital-literacy-practical1.pdf" class="btn">
+                Practical 1
+            </a>
+
+            <a href="digital-literacy-practical2.pdf" class="btn">
+                Practical 2
+            </a>
+
+            <a href="digital-literacy-practical3.pdf" class="btn">
+                Practical 3
+            </a>
+
+        </div>
+
+
+        <div class="portfolio-section">
+
+            <strong>Observation Checklists</strong>
+
+            <a href="digital-literacy-checklist1.pdf"
+               class="btn btn-green">
+                Checklist 1
+            </a>
+
+            <a href="digital-literacy-checklist2.pdf"
+               class="btn btn-green">
+                Checklist 2
+            </a>
+
+            <a href="digital-literacy-checklist3.pdf"
+               class="btn btn-green">
+                Checklist 3
+            </a>
+
+        </div>
+
+
+        <div class="portfolio-section">
+
+            <strong>Continuous Assessment Tests</strong>
+
+            <a href="digital-literacy-cat1.pdf"
+               class="btn btn-blue">
+                CAT 1
+            </a>
+
+            <a href="digital-literacy-cat2.pdf"
+               class="btn btn-blue">
+                CAT 2
+            </a>
+
+            <a href="digital-literacy-cat3.pdf"
+               class="btn btn-blue">
+                CAT 3
+            </a>
+
+        </div>
+
+
+        <div class="portfolio-section">
+
+            <strong>CAT Marking Schemes</strong>
+
+            <a href="digital-literacy-cat1-marking-scheme.pdf"
+               class="btn">
+                CAT 1 Marking Scheme
+            </a>
+
+            <a href="digital-literacy-cat2-marking-scheme.pdf"
+               class="btn">
+                CAT 2 Marking Scheme
+            </a>
+
+            <a href="digital-literacy-cat3-marking-scheme.pdf"
+               class="btn">
+                CAT 3 Marking Scheme
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- UNIT 2 -->
+
+    <div class="unit-portfolio">
+
+        <h4>2. Communication Skills</h4>
+
+        <div class="portfolio-section">
+
+            <strong>Practical Assessments</strong>
+
+            <a href="communication-skills-practical1.pdf" class="btn">
+                Practical 1
+            </a>
+
+            <a href="communication-skills-practical2.pdf" class="btn">
+                Practical 2
+            </a>
+
+            <a href="communication-skills-practical3.pdf" class="btn">
+                Practical 3
+            </a>
+
+        </div>
+
+
+        <div class="portfolio-section">
+
+            <strong>Observation Checklists</strong>
+
+            <a href="communication-skills-checklist1.pdf"
+               class="btn btn-green">
+                Checklist 1
+            </a>
+
+            <a href="communication-skills-checklist2.pdf"
+               class="btn btn-green">
+                Checklist 2
+            </a>
+
+            <a href="communication-skills-checklist3.pdf"
+               class="btn btn-green">
+                Checklist 3
+            </a>
+
+        </div>
+
+
+        <div class="portfolio-section">
+
+            <strong>Continuous Assessment Tests</strong>
+
+            <a href="communication-skills-cat1.pdf"
+               class="btn btn-blue">
+                CAT 1
+            </a>
+
+            <a href="communication-skills-cat2.pdf"
+               class="btn btn-blue">
+                CAT 2
+            </a>
+
+            <a href="communication-skills-cat3.pdf"
+               class="btn btn-blue">
+                CAT 3
+            </a>
+
+        </div>
+
+
+        <div class="portfolio-section">
+
+            <strong>CAT Marking Schemes</strong>
+
+            <a href="communication-skills-cat1-marking-scheme.pdf"
+               class="btn">
+                CAT 1 Marking Scheme
+            </a>
+
+            <a href="communication-skills-cat2-marking-scheme.pdf"
+               class="btn">
+                CAT 2 Marking Scheme
+            </a>
+
+            <a href="communication-skills-cat3-marking-scheme.pdf"
+               class="btn">
+                CAT 3 Marking Scheme
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- UNIT 3 -->
+
+    <div class="unit-portfolio">
+
+        <h4>3. Technical Drawing</h4>
+
+        <div class="portfolio-section">
+
+            <strong>Practical Assessments</strong>
+
+            <a href="technical-drawing-practical1.pdf" class="btn">
+                Practical 1
+            </a>
+
+            <a href="technical-drawing-practical2.pdf" class="btn">
+                Practical 2
+            </a>
+
+            <a href="technical-drawing-practical3.pdf" class="btn">
+                Practical 3
+            </a>
+
+        </div>
+
+
+        <div class="portfolio-section">
+
+            <strong>Observation Checklists</strong>
+
+            <a href="technical-drawing-checklist1.pdf"
+               class="btn btn-green">
+                Checklist 1
+            </a>
+
+            <a href="technical-drawing-checklist2.pdf"
+               class="btn btn-green">
+                Checklist 2
+            </a>
+
+            <a href="technical-drawing-checklist3.pdf"
+               class="btn btn-green">
+                Checklist 3
+            </a>
+
+        </div>
+
+
+        <div class="portfolio-section">
+
+            <strong>Continuous Assessment Tests</strong>
+
+            <a href="technical-drawing-cat1.pdf"
+               class="btn btn-blue">
+                CAT 1
+            </a>
+
+            <a href="technical-drawing-cat2.pdf"
+               class="btn btn-blue">
+                CAT 2
+            </a>
+
+            <a href="technical-drawing-cat3.pdf"
+               class="btn btn-blue">
+                CAT 3
+            </a>
+
+        </div>
+
+
+        <div class="portfolio-section">
+
+            <strong>CAT Marking Schemes</strong>
+
+            <a href="technical-drawing-cat1-marking-scheme.pdf"
+               class="btn">
+                CAT 1 Marking Scheme
+            </a>
+
+            <a href="technical-drawing-cat2-marking-scheme.pdf"
+               class="btn">
+                CAT 2 Marking Scheme
+            </a>
+
+            <a href="technical-drawing-cat3-marking-scheme.pdf"
+               class="btn">
+                CAT 3 Marking Scheme
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- UNIT 4 -->
+
+    <div class="unit-portfolio">
+
+        <h4>4. Basic Electrical Principles</h4>
+
+        <div class="portfolio-section">
+
+            <strong>Practical Assessments</strong>
+
+            <a href="basic-electrical-principles-practical1.pdf"
+               class="btn">
+                Practical 1
+            </a>
+
+            <a href="basic-electrical-principles-practical2.pdf"
+               class="btn">
+                Practical 2
+            </a>
+
+            <a href="basic-electrical-principles-practical3.pdf"
+               class="btn">
+                Practical 3
+            </a>
+
+        </div>
+
+
+        <div class="portfolio-section">
+
+            <strong>Observation Checklists</strong>
+
+            <a href="basic-electrical-principles-checklist1.pdf"
+               class="btn btn-green">
+                Checklist 1
+            </a>
+
+            <a href="basic-electrical-principles-checklist2.pdf"
+               class="btn btn-green">
+                Checklist 2
+            </a>
+
+            <a href="basic-electrical-principles-checklist3.pdf"
+               class="btn btn-green">
+                Checklist 3
+            </a>
+
+        </div>
+
+
+        <div class="portfolio-section">
+
+            <strong>Continuous Assessment Tests</strong>
+
+            <a href="basic-electrical-principles-cat1.pdf"
+               class="btn btn-blue">
+                CAT 1
+            </a>
+
+            <a href="basic-electrical-principles-cat2.pdf"
+               class="btn btn-blue">
+                CAT 2
+            </a>
+
+            <a href="basic-electrical-principles-cat3.pdf"
+               class="btn btn-blue">
+                CAT 3
+            </a>
+
+        </div>
+
+
+        <div class="portfolio-section">
+
+            <strong>CAT Marking Schemes</strong>
+
+            <a href="basic-electrical-principles-cat1-marking-scheme.pdf"
+               class="btn">
+                CAT 1 Marking Scheme
+            </a>
+
+            <a href="basic-electrical-principles-cat2-marking-scheme.pdf"
+               class="btn">
+                CAT 2 Marking Scheme
+            </a>
+
+            <a href="basic-electrical-principles-cat3-marking-scheme.pdf"
+               class="btn">
+                CAT 3 Marking Scheme
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- UNIT 5 -->
+
+    <div class="unit-portfolio">
+
+        <h4>5. Electrical Installation</h4>
+
+        <div class="portfolio-section">
+
+            <strong>Practical Assessments</strong>
+
+            <a href="electrical-installation-practical1.pdf"
+               class="btn">
+                Practical 1
+            </a>
+
+            <a href="electrical-installation-practical2.pdf"
+               class="btn">
+                Practical 2
+            </a>
+
+            <a href="electrical-installation-practical3.pdf"
+               class="btn">
+                Practical 3
+            </a>
+
+        </div>
+
+
+        <div class="portfolio-section">
+
+            <strong>Observation Checklists</strong>
+
+            <a href="electrical-installation-checklist1.pdf"
+               class="btn btn-green">
+                Checklist 1
+            </a>
+
+            <a href="electrical-installation-checklist2.pdf"
+               class="btn btn-green">
+                Checklist 2
+            </a>
+
+            <a href="electrical-installation-checklist3.pdf"
+               class="btn btn-green">
+                Checklist 3
+            </a>
+
+        </div>
+
+
+        <div class="portfolio-section">
+
+            <strong>Continuous Assessment Tests</strong>
+
+            <a href="electrical-installation-cat1.pdf"
+               class="btn btn-blue">
+                CAT 1
+            </a>
+
+            <a href="electrical-installation-cat2.pdf"
+               class="btn btn-blue">
+                CAT 2
+            </a>
+
+            <a href="electrical-installation-cat3.pdf"
+               class="btn btn-blue">
+                CAT 3
+            </a>
+
+        </div>
+
+
+        <div class="portfolio-section">
+
+            <strong>CAT Marking Schemes</strong>
+
+            <a href="electrical-installation-cat1-marking-scheme.pdf"
+               class="btn">
+                CAT 1 Marking Scheme
+            </a>
+
+            <a href="electrical-installation-cat2-marking-scheme.pdf"
+               class="btn">
+                CAT 2 Marking Scheme
+            </a>
+
+            <a href="electrical-installation-cat3-marking-scheme.pdf"
+               class="btn">
+                CAT 3 Marking Scheme
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <p>
+        <strong>Electrical Department</strong> |
+        Aberdare Technical College
+    </p>
+
+    <p>
+        Module 3 - Electrical Installation
+    </p>
+
+    <p>
+       &copy; 2026 Aberdare Technical College |
+            Electrical Department |
+            James Ndirangu | Jojahr Solutions | ICT Department.
+
+    </p>
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     ONLY USED FOR HAMBURGER MENU
+========================================================= -->
+
+<script>
+
+function toggleMenu() {
+
+    const menu = document.getElementById("navLinks");
+
+    menu.classList.toggle("active");
+
+}
+
+</script>
+
+</body>
+
+</html>
+```

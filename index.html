@@ -1,0 +1,1476 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Aberdare Technical College - Electrical Department">
+
+    <title>Home</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #800000;
+            --primary-dark: #4a0000;
+            --secondary: #d97706;
+            --dark: #2b080c;
+            --light: #fdf2f2;
+            --white: #ffffff;
+            --text: #1e293b;
+            --accent: #b91c1c;
+            --soft: #fecdd3;
+            --whatsapp: #25D366;
+            --whatsapp-dark: #128C7E;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--light);
+        }
+
+        /* ================= NAVIGATION ================= */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(74, 0, 0, 0.97);
+            box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 25px;
+        }
+
+        .logo {
+            color: var(--white);
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .nav-menu {
+            position: absolute;
+            top: 70px;
+            right: 25px;
+            width: 280px;
+            max-height: 0;
+            overflow: hidden;
+            background: var(--dark);
+            border-radius: 0 0 12px 12px;
+            transition: max-height 0.4s ease;
+        }
+
+        .nav-menu a {
+            display: block;
+            color: var(--white);
+            text-decoration: none;
+            padding: 13px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            transition: 0.3s;
+        }
+
+        .nav-menu a:hover {
+            background: var(--primary);
+            color: var(--white);
+            padding-left: 28px;
+        }
+
+        #menu-toggle:checked ~ .nav-menu {
+            max-height: 650px;
+        }
+
+        #menu-toggle:checked + .hamburger span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        #menu-toggle:checked + .hamburger span:nth-child(2) {
+            opacity: 0;
+        }
+
+        #menu-toggle:checked + .hamburger span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+            background-size: cover;
+            background-position: center;
+            animation: coverImages 20s infinite;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+
+            background: linear-gradient(
+                90deg,
+                rgba(43, 8, 12, 0.92),
+                rgba(80, 10, 20, 0.72),
+                rgba(0, 0, 0, 0.55)
+            );
+        }
+
+        /* Replace these images with your electrical images */
+
+        @keyframes coverImages {
+
+            0%, 20% {
+                background-image: url("e1.jpeg");
+            }
+
+            25%, 45% {
+                background-image: url("e2.jpeg");
+            }
+
+            50%, 70% {
+                background-image: url("e3.jpeg");
+            }
+
+            75%, 95% {
+                background-image: url("e4.jpeg");
+            }
+
+            100% {
+                background-image: url("e5.jpeg");
+            }
+        }
+
+        .hero-content {
+            max-width: 950px;
+            padding: 100px 25px 50px;
+            animation: heroText 1.2s ease;
+        }
+
+        @keyframes heroText {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 6vw, 5rem);
+            line-height: 1.05;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 span {
+            color: var(--secondary);
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            margin-bottom: 28px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--dark);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+
+        /* ================= GENERAL ================= */
+
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            color: var(--primary);
+            font-size: 2.3rem;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: auto;
+            color: #64748b;
+        }
+
+        /* ================= QUICK LINKS ================= */
+
+        .quick-links {
+            background: var(--white);
+        }
+
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .quick-btn {
+            background: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            padding: 25px 15px;
+            text-align: center;
+            border-radius: 10px;
+            font-weight: bold;
+            border-bottom: 4px solid var(--secondary);
+            transition: 0.3s;
+        }
+
+        .quick-btn:hover {
+            transform: translateY(-6px);
+            background: var(--secondary);
+            color: var(--dark);
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .info-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+            border-left: 5px solid var(--secondary);
+        }
+
+        .info-card h3 {
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-size: 1.5rem;
+        }
+
+        /* ================= ELECTRICAL TRAINING ================= */
+
+        .training {
+            background: #fcf0f0;
+        }
+
+        .training-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+
+        .training-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .training-card:hover {
+            transform: translateY(-7px);
+        }
+
+        .training-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .training-content {
+            padding: 22px;
+        }
+
+        .training-content h3 {
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        /* ================= TRAINERS ================= */
+
+        .trainers {
+            background: var(--white);
+        }
+
+        .trainers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .trainer-card {
+            background: var(--light);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            border-top: 5px solid var(--primary);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .trainer-card:hover {
+            transform: translateY(-7px);
+        }
+
+        .trainer-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .trainer-card h3 {
+            color: var(--primary);
+            margin-bottom: 5px;
+            font-size: 1.4rem;
+        }
+
+        .trainer-role {
+            color: var(--secondary);
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .trainer-card p {
+            margin-bottom: 20px;
+        }
+
+        /* ================= WHATSAPP ================= */
+
+        .whatsapp-btn {
+            display: inline-block;
+            background: var(--whatsapp);
+            color: white;
+            text-decoration: none;
+            padding: 11px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            background: var(--whatsapp-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* ================= INQUIRY FORM ================= */
+
+        .inquiry-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 35px;
+            border-radius: 20px;
+            align-items: start;
+        }
+
+        .contact-info {
+            background: var(--primary);
+            color: var(--white);
+            padding: 35px;
+            border-radius: 12px;
+        }
+
+        .contact-info h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .contact-info p {
+            margin-bottom: 12px;
+        }
+
+        .contact-info .whatsapp-btn {
+            margin-top: 10px;
+        }
+
+        .form-box {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font: inherit;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--secondary);
+        }
+
+        textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        /* ================= FLOATING WHATSAPP ================= */
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 999;
+            background: var(--whatsapp);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background: var(--whatsapp-dark);
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: var(--dark);
+            color: #e2e8f0;
+            padding: 45px 20px 20px;
+        }
+
+        .footer-grid {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 30px;
+        }
+
+        footer h3 {
+            color: var(--secondary);
+            margin-bottom: 12px;
+        }
+
+        footer a {
+            color: #e2e8f0;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 7px;
+        }
+
+        footer a:hover {
+            color: var(--secondary);
+        }
+
+        .copyright {
+            max-width: 1150px;
+            margin: 30px auto 0;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 850px) {
+
+            .quick-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-grid,
+            .training-grid,
+            .inquiry-grid,
+            .trainers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .nav-container {
+                padding: 0 15px;
+            }
+
+            .logo {
+                font-size: 16px;
+            }
+
+            .nav-menu {
+                right: 10px;
+                left: 10px;
+                width: auto;
+            }
+
+            .quick-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 65px 15px;
+            }
+
+            .hero-content {
+                padding-top: 110px;
+            }
+
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                right: 18px;
+                bottom: 18px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <a href="#home" class="logo">
+                ABERDARE <span>TECHNICAL COLLEGE</span>
+            </a>
+
+            <input type="checkbox" id="menu-toggle">
+
+            <label for="menu-toggle"
+                   class="hamburger"
+                   aria-label="Open navigation menu">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </label>
+
+            <nav class="nav-menu">
+
+                <a href="index.html">Home</a>
+
+                <a href="module1.html">
+                    Module 1
+                </a>
+
+                <a href="module2.html">
+                    Module 2
+                </a>
+
+                <a href="module3.html">
+                    Module 3
+                </a>
+
+                <a href="module4.html">
+                    Module 4
+                </a>
+
+                <a href="contact.html">
+                    Contacts
+                </a>
+
+                <a href="about.html">
+                    About Us
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= COVER ================= -->
+
+    <main id="home">
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="hero-badge">
+                    ELECTRICAL DEPARTMENT
+                </div>
+
+                <h1>
+                    ABERDARE<br>
+                    <span>TECHNICAL COLLEGE</span>
+                </h1>
+
+                <p>
+                    Developing competent electrical professionals through
+                    practical, competency-based and industry-oriented training.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#training"
+                       class="btn btn-primary">
+                        Explore Training
+                    </a>
+
+                    <a href="#inquiries"
+                       class="btn btn-outline">
+                        Make an Inquiry
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= QUICK LINKS ================= -->
+
+        <section class="quick-links">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <h2>
+                        Electrical Training Resources
+                    </h2>
+
+                    <p>
+                        Quick access to important Electrical Department
+                        training resources and learning information.
+                    </p>
+
+                </div>
+
+                <div class="quick-grid">
+
+                    <a class="quick-btn"
+                       href="module1.html">
+                        Module 1
+                    </a>
+
+                    <a class="quick-btn"
+                       href="module2.html">
+                        Module 2
+                    </a>
+
+                    <a class="quick-btn"
+                       href="module3.html">
+                        Module 3
+                    </a>
+
+                    <a class="quick-btn"
+                       href="module4.html">
+                        Module 4
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= MISSION & VISION ================= -->
+
+        <section id="about">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <h2>
+                        About Electrical Department
+                    </h2>
+
+                    <p>
+                        Building competent, innovative and responsible
+                        electrical professionals.
+                    </p>
+
+                </div>
+
+                <div class="about-grid">
+
+                    <div class="info-card">
+
+                        <h3>
+                            Our Mission
+                        </h3>
+
+                        <p>
+                            To provide quality, practical and competency-based
+                            electrical training that equips learners with
+                            relevant technical skills, professional values,
+                            innovation and problem-solving abilities required
+                            in the electrical and energy industry.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Our Vision
+                        </h3>
+
+                        <p>
+                            To be a centre of excellence in electrical
+                            technical training, producing competent,
+                            innovative and responsible professionals who
+                            contribute effectively to the development of
+                            society and industry.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= TRAINING HIGHLIGHTS ================= -->
+
+        <section class="training"
+                 id="training">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <h2>
+                        Electrical Training Highlights
+                    </h2>
+
+                    <p>
+                        Practical learning experiences designed to prepare
+                        students for real electrical work environments.
+                    </p>
+
+                </div>
+
+
+                <div class="training-grid">
+
+
+                    <article class="training-card">
+
+                        <img src="E1.jpeg"
+                             alt="Electrical installation training">
+
+                        <div class="training-content">
+
+                            <h3>
+                                Electrical Installation
+                            </h3>
+
+                            <p>
+                                Practical training in domestic and industrial
+                                electrical installations, wiring systems,
+                                circuits, switches, sockets and electrical
+                                accessories.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="training-card">
+
+                        <img src="E2.jpeg"
+                             alt="Electrical wiring practical">
+
+                        <div class="training-content">
+
+                            <h3>
+                                Electrical Wiring Practicals
+                            </h3>
+
+                            <p>
+                                Students develop practical skills in cable
+                                preparation, wiring, termination, testing
+                                and safe installation of electrical circuits.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="training-card">
+
+                        <img src="E3.jpeg"
+                             alt="Electrical machines training">
+
+                        <div class="training-content">
+
+                            <h3>
+                                Electrical Machines
+                            </h3>
+
+                            <p>
+                                Hands-on learning involving electrical
+                                machines, motors, transformers, generators,
+                                control systems and maintenance procedures.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="training-card">
+
+                        <img src="E4.jpeg"
+                             alt="Electrical safety training">
+
+                        <div class="training-content">
+
+                            <h3>
+                                Electrical Safety
+                            </h3>
+
+                            <p>
+                                Students learn electrical safety procedures,
+                                identification of hazards, use of protective
+                                equipment and safe working practices.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= TRAINERS ================= -->
+
+        <section class="trainers"
+                 id="trainers">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <h2>
+                        Our Department Leadership
+                    </h2>
+
+                    <p>
+                        Meet the team responsible for guiding and supporting
+                        Electrical Department training.
+                    </p>
+
+                </div>
+
+
+                <div class="trainers-grid">
+
+
+                    <!-- PRINCIPAL -->
+
+                    <div class="trainer-card">
+
+                        <div class="trainer-icon">
+                            JM
+                        </div>
+
+                        <h3>
+                            Mr. John Maina
+                        </h3>
+
+                        <div class="trainer-role">
+                            Principal
+                        </div>
+
+                        <p>
+                            Providing leadership and institutional support
+                            for quality technical and vocational education
+                            and training.
+                        </p>
+
+                        <a class="whatsapp-btn"
+                           href="https://wa.me/254721636819"
+                           target="_blank">
+
+                            WhatsApp Principal
+
+                        </a>
+
+                    </div>
+
+
+                    <!-- HOD -->
+
+                    <div class="trainer-card">
+
+                        <div class="trainer-icon">
+                            MM
+                        </div>
+
+                        <h3>
+                            Madam Margaret
+                        </h3>
+
+                        <div class="trainer-role">
+                            Head of Department (HOD)
+                        </div>
+
+                        <p>
+                            Coordinating Electrical Department activities,
+                            practical training, learner support and
+                            technical training programmes.
+                        </p>
+
+                        <a class="whatsapp-btn"
+                           href="https://wa.me/254743607888"
+                           target="_blank">
+
+                            WhatsApp HOD
+
+                        </a>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= INQUIRIES ================= -->
+
+        <section id="inquiries">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <h2>
+                        Student & Electrical Training Inquiries
+                    </h2>
+
+                    <p>
+                        Send your question or request using the form below.
+                    </p>
+
+                </div>
+
+
+                <div class="inquiry-grid">
+
+
+                    <div class="contact-info">
+
+                        <h3>
+                            Need Assistance?
+                        </h3>
+
+                        <p>
+                            This inquiry section is available for students,
+                            trainers, assessors and other Electrical
+                            Department stakeholders.
+                        </p>
+
+                        <p>
+                            <strong>Students:</strong>
+                            Ask about modules, learning materials,
+                            practical activities, timetables and
+                            assessments.
+                        </p>
+
+                        <p>
+                            <strong>Assessors:</strong>
+                            Send inquiries concerning assessment,
+                            practical activities and learner records.
+                        </p>
+
+
+                        <p>
+                            <strong>Principal:</strong><br>
+                            0721636819
+                        </p>
+
+                        <a class="whatsapp-btn"
+                           href="https://wa.me/254721636819"
+                           target="_blank">
+
+                            Chat with Principal
+
+                        </a>
+
+
+                        <p style="margin-top:20px;">
+
+                            <strong>HOD - Madam Margaret:</strong><br>
+                            0743607888
+
+                        </p>
+
+                        <a class="whatsapp-btn"
+                           href="https://wa.me/254743607888"
+                           target="_blank">
+
+                            Chat with HOD
+
+                        </a>
+
+                    </div>
+
+
+                    <!-- FORM -->
+
+                    <form class="form-box"
+                          action="#"
+                          method="post">
+
+
+                        <div class="form-group">
+
+                            <label for="name">
+                                Full Name
+                            </label>
+
+                            <input type="text"
+                                   id="name"
+                                   name="name"
+                                   placeholder="Enter your full name"
+                                   required>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="role">
+                                I am a
+                            </label>
+
+                            <select id="role"
+                                    name="role"
+                                    required>
+
+                                <option value="">
+                                    -- Select --
+                                </option>
+
+                                <option value="student">
+                                    Student
+                                </option>
+
+                                <option value="trainer">
+                                    Trainer
+                                </option>
+
+                                <option value="assessor">
+                                    Assessor
+                                </option>
+
+                                <option value="applicant">
+                                    Prospective Student
+                                </option>
+
+                                <option value="other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <input type="email"
+                                   id="email"
+                                   name="email"
+                                   placeholder="Enter your email"
+                                   required>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="phone">
+                                Phone Number
+                            </label>
+
+                            <input type="tel"
+                                   id="phone"
+                                   name="phone"
+                                   placeholder="Enter your phone number">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="module">
+                                Module
+                            </label>
+
+                            <select id="module"
+                                    name="module">
+
+                                <option value="">
+                                    -- Select Module --
+                                </option>
+
+                                <option value="module1">
+                                    Module 1
+                                </option>
+
+                                <option value="module2">
+                                    Module 2
+                                </option>
+
+                                <option value="module3">
+                                    Module 3
+                                </option>
+
+                                <option value="module4">
+                                    Module 4
+                                </option>
+
+                                <option value="general">
+                                    General Inquiry
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="subject">
+                                Subject
+                            </label>
+
+                            <input type="text"
+                                   id="subject"
+                                   name="subject"
+                                   placeholder="Inquiry subject"
+                                   required>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="message">
+                                Message
+                            </label>
+
+                            <textarea id="message"
+                                      name="message"
+                                      placeholder="Write your inquiry here..."
+                                      required></textarea>
+
+                        </div>
+
+
+                        <button type="submit"
+                                class="btn btn-primary submit-btn">
+
+                            Submit Inquiry
+
+                        </button>
+
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FLOATING WHATSAPP ================= -->
+
+    <a class="whatsapp-float"
+       href="https://wa.me/254721636819"
+       target="_blank"
+       title="WhatsApp Principal"
+       aria-label="WhatsApp Principal">
+
+        WA
+
+    </a>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-grid">
+
+
+            <div>
+
+                <h3>
+                    ABERDARE TECHNICAL COLLEGE
+                </h3>
+
+                <p>
+                    Electrical Department — developing competent,
+                    innovative and industry-ready electrical professionals
+                    through practical and competency-based training.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="#about">
+                    About Us
+                </a>
+
+                <a href="#training">
+                    Training
+                </a>
+
+                <a href="#trainers">
+                    Trainers
+                </a>
+
+                <a href="#inquiries">
+                    Inquiries
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Modules
+                </h3>
+
+                <a href="module1.html">
+                    Module 1
+                </a>
+
+                <a href="module2.html">
+                    Module 2
+                </a>
+
+                <a href="module3.html">
+                    Module 3
+                </a>
+
+                <a href="module4.html">
+                    Module 4
+                </a>
+
+                <a href="contacts.html">
+                    Contacts
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="copyright">
+
+            &copy; 2026 Aberdare Technical College |
+            Electrical Department |
+            James Ndirangu | Jojahr Solutions | ICT Department.
+
+            All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>
+```
